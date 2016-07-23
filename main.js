@@ -1,6 +1,6 @@
 var CasingUtil = {
   ready: fn => document.readyState != 'loading' ? fn() : document.addEventListener('DOMContentLoaded', fn),
-  convertToArray: str => str.replace(/[A-Z]/g, ' $&').trim().split(/[^A-Za-z]+/),
+  convertToArray: str => str.replace(/[A-Z]/g, ' $&').split(/[^A-Za-z]+/).filter(s => s),
   arrayToCamel: arr => arr.join(' ').toLowerCase().replace(/ (.)/g, (_, c) => c.toUpperCase()),
   arrayToTitle: arr => arr.map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(''),
   arrayToKebob: arr => arr.join('-').toLowerCase(),
