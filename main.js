@@ -13,18 +13,27 @@ CasingUtil.ready(function() {
   var $input    = document.getElementById('input');
   var $generate = document.getElementById('generate');
   var $output   = document.getElementById('output');
+  var lastInput = '';
 
   $generate.addEventListener('click', generate);
-  $input.addEventListener('keydown', () => $input.value && window.setTimeout(generate, 0));
+  $input.addEventListener('keydown', () => window.setTimeout(generate, 0));
   $input.focus();
 
   function generate() {
-    var arr = CasingUtil.convertToArray($input.value);
+    var input = $input.value;
+    if (!input || input === lastInput) {
+      return;
+    }
+    lastInput = input;
+
+    var arr = CasingUtil.convertToArray(input);
+    var $container = document.createElement('div');
+    appendStyles($container, arr, 'Camel', 'Title', 'Kebob', 'Snake', 'Constant');
     $output.innerHTML = '';
-    $output.appendChild(CasingUtil.pWithText(CasingUtil.arrayToCamel(arr)));
-    $output.appendChild(CasingUtil.pWithText(CasingUtil.arrayToTitle(arr)));
-    $output.appendChild(CasingUtil.pWithText(CasingUtil.arrayToKebob(arr)));
-    $output.appendChild(CasingUtil.pWithText(CasingUtil.arrayToSnake(arr)));
-    $output.appendChild(CasingUtil.pWithText(CasingUtil.arrayToConstant(arr)));
+    $output.appendChild($container);
+  }
+
+  function appendStyles(el, arr, ...styles) {
+    styles.forEach(style => el.appendChild(CasingUtil.pWithText(CasingUtil[`arrayTo${style}`](arr))));
   }
 });
