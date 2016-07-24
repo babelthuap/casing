@@ -1,14 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Casing</title>
-</head>
-<body style="margin: 42px">
-  <h3>Proper Casing</h3>
-  <input type="text" id="input" size="42">
-  <button id="generate">Generate</button>
-  <div id="output" style="margin-left: 42px"></div>
-  <script src="main.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html><head><title>Casing</title></head><body style="margin:42px;font-family:monospace"><h3>Proper Casing</h3><input type="text"id="i"size="42"><button id="g">Generate</button><div id="o"style="margin-left:42px"></div><script>d=document,g="getElementById",u="toUpperCase",l="toLowerCase",j="join",v="addEventListener",w="split",x="replace",y="appendChild",z="createElement",a={r:n=>"loading"!=d.readyState?n():d[v]("DOMContentLoaded",n),b:n=>n[x](/[A-Z]/g," $&")[w](/[^A-Za-z]+/).filter(n=>n),c:n=>n[j](" ")[l]()[x](/ (.)/g,(n,t)=>t[u]()),t:n=>n.map(n=>n[0][u]()+n.slice(1)[l]())[j](""),k:n=>n[j]("-")[l](),s:n=>n[j]("_")[l](),n:n=>n[j]("_")[u](),m:n=>n[j]("_")[l]()+"_template.html",p:t=>{var n=d[z]("p");return n.textContent=t,n}},a.r(s=>{var n=s=>{var n=e.value;if(n&&n!=o){o=n;var r=a.b(n),i=d[z]("div");t(i,r,"ctksnm"),u.innerHTML="",u[y](i)}},t=(n,t,e)=>{e[w]("").forEach(e=>n[y](a.p(a[e](t))))},e=d[g]("i"),r=d[g]("g"),u=d[g]("o"),o="";r[v]("click",n),e[v]("keydown",e=>window.setTimeout(n,0)),e.focus()});</script></body></html>
